@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vigor VA Solutions</title>
+    <meta
+      name="description"
+      content="Vigor VA Solutions — CSR, Dental VA, General VA, Executive Assistant"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-container">
+        <!-- ✅ Logo -->
+        <div class="logo-area">
+          <img
+            src="images/logo.png"
+            alt="Vigor VA Solutions Logo"
+            class="logo"
+          />
+        </div>
+
+        <!-- ✅ Desktop Navigation -->
+        <nav class="nav" id="mainNav" aria-label="Main">
+          <a href="#services">Services</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact" class="btn small outline">Contact</a>
+        </nav>
+
+        <!-- ✅ Mobile Hamburger -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <span class="pill">Trusted • Remote • Scalable</span>
+
+            <section class="hero">
+              <h1 class="typing-text"></h1>
+            </section>
+
+            <p class="lead">
+              Specializing in Customer Service (CSR), Dental practice support,
+              General VA tasks, and Executive Assistance. Flexible plans —
+              trained, vetted, and ready.
+            </p>
+            <div class="hero-ctas">
+              <a href="#contact" class="btn">Request a Quote</a>
+              <a href="#services" class="btn outline">See Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="section">
+        <div class="container">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-sub">
+            Real people. Real results. Designed for small teams and busy
+            professionals.
+          </p>
+
+          <div class="services-grid">
+            <article class="service">
+              <h3>Customer Service (CSR)</h3>
+              <p>
+                Friendly, timely support across phone, chat, and email. Ticket
+                triage, escalation and follow-ups.
+              </p>
+            </article>
+
+            <article class="service">
+              <h3>Dental Virtual Assistant</h3>
+              <p>
+                Appointment bookings, insurance verification, patient reminders,
+                and chart management to keep your practice efficient.
+              </p>
+            </article>
+
+            <article class="service">
+              <h3>General Virtual Assistant</h3>
+              <p>
+                Administrative tasks, calendar & inbox management, data entry,
+                research and SOP creation — tailored support.
+              </p>
+            </article>
+
+            <article class="service">
+              <h3>Executive Assistant (EA)</h3>
+              <p>
+                High-trust executive support: scheduling, travel coordination,
+                meeting prep and confidential admin.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="section bg-sky">
+        <div class="container">
+          <h2 class="section-title light">What clients say</h2>
+          <div class="testimonials-wrap">
+            <button class="slider-btn" id="prevTest">‹</button>
+            <div class="testimonial card" id="testimonialCard">
+              <p class="quote">
+                "Vigor VA helped us reduce response time and improve customer
+                satisfaction — their CSR staff are top-notch."
+              </p>
+              <p class="author">— Joey Hipolito., eCommerce Founder</p>
+            </div>
+            <button class="slider-btn" id="nextTest">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <div class="container narrow">
+          <h2 class="section-title">Contact & Request</h2>
+          <p class="section-sub">
+            Tell us about your needs and timeline — we’ll match you with the
+            right assistant within 48–72 hours.
+          </p>
+
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="row">
+              <div class="col">
+                <label for="name">Full name *</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="col">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-full">
+                <label for="message">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">Send request</button>
+              <div id="formMsg" class="form-msg"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="brand-small">
+          <div class="logo small">VVS</div>
+          <div>
+            <strong>Vigor VA Solutions</strong>
+          </div>
+        </div>
+        <div class="copy">
+          © <span id="year"></span> Vigor VA Solutions · All rights reserved
+        </div>
+      </div>
+    </footer>
+
+    <!-- ✅ JavaScript inline -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle with slide effect
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', String(!expanded));
+
+          mobileMenu.classList.toggle('active');
+          overlay.classList.toggle('active');
+        });
+
+        // Close menu when clicking link or overlay
+        document.querySelectorAll('.mobile-menu a, #overlay').forEach((el) => {
+          el.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Testimonials
+        const testimonials = [
+          {
+            text: 'Vigor VA helped us reduce response time and improve customer satisfaction — their CSR staff are top-notch.',
+            author: 'Joey Hipolito, eCommerce Founder',
+          },
+          {
+            text: 'Their Dental VA saved our front desk hours every week; scheduling and reminders are seamless now.',
+            author: 'J.p, Dental Practice Owner',
+          },
+          {
+            text: 'Professional, discreet and reliable — our EA handles calendar and travel flawlessly.',
+            author: 'T H., CEO',
+          },
+        ];
+        let index = 0;
+        const testCard = document.getElementById('testimonialCard');
+        document.getElementById('prevTest').addEventListener('click', () => {
+          index = (index - 1 + testimonials.length) % testimonials.length;
+          updateTestimonial();
+        });
+        document.getElementById('nextTest').addEventListener('click', () => {
+          index = (index + 1) % testimonials.length;
+          updateTestimonial();
+        });
+        function updateTestimonial() {
+          const t = testimonials[index];
+          testCard.innerHTML =
+            '<p class="quote">"' +
+            t.text +
+            '"</p><p class="author">— ' +
+            t.author +
+            '</p>';
+        }
+
+        // Contact form
+        const form = document.getElementById('contactForm');
+        const msg = document.getElementById('formMsg');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = form.name.value.trim();
+          const email = form.email.value.trim();
+          const message = form.message.value.trim();
+
+          if (!name || !email || !message) {
+            msg.textContent = 'Please fill in all required fields.';
+            msg.style.color = 'crimson';
+            return;
+          }
+
+          msg.textContent =
+            'Thanks ' + name + '! We’ll respond within 48–72 hours.';
+          msg.style.color = 'green';
+          form.reset();
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const text = 'Hire your best asset for growth!';
+        const typingElement = document.querySelector('.typing-text');
+        let index = 0;
+
+        function type() {
+          if (index < text.length) {
+            typingElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 80); // speed in ms (lower = faster)
+          } else {
+            // optional: restart effect after delay
+            setTimeout(() => {
+              typingElement.textContent = '';
+              index = 0;
+              type();
+            }, 2000);
+          }
+        }
+
+        type();
+      });
+    </script>
+  </body>
+</html>
