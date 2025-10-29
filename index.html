@@ -13,23 +13,24 @@
   <body>
     <header class="site-header">
       <div class="nav-container">
-        <!-- ✅ Logo -->
+        <!-- Logo -->
         <div class="logo-area">
           <img
             src="images/logo.png"
             alt="Vigor VA Solutions Logo"
             class="logo"
           />
+          <h1>Vigor VA Solutions</h1>
         </div>
 
-        <!-- ✅ Desktop Navigation -->
+        <!-- Desktop Nav -->
         <nav class="nav" id="mainNav" aria-label="Main">
           <a href="#services">Services</a>
           <a href="#testimonials">Testimonials</a>
           <a href="#contact" class="btn small outline">Contact</a>
         </nav>
 
-        <!-- ✅ Mobile Hamburger -->
+        <!-- Hamburger -->
         <button
           class="hamburger"
           id="hamburger"
@@ -41,6 +42,14 @@
           <span></span>
         </button>
       </div>
+
+      <!-- ✅ Mobile Menu + Overlay -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn small outline">Contact</a>
+      </nav>
+      <div class="menu-overlay" id="overlay"></div>
     </header>
 
     <main>
@@ -298,3 +307,4 @@
     </script>
   </body>
 </html>
+
