@@ -17,11 +17,18 @@
   <body>
     <!-- Hero Section -->
     <section class="hero fade-in">
+      <!-- 🎥 Background video -->
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="video/hero-bg.mp4" type="video/mp4" />
+        <!-- Optional: fallback text -->
+        Your browser does not support the video tag.
+      </video>
+
       <div class="hero-content">
-        <h1>Vigor VA Solutions</h1>
+        <!-- <h1>Vigor VA Solutions</h1>
         <p class="typing-text">
           Your trusted partner for <span id="typed-text"></span>
-        </p>
+        </p> -->
         <a href="#contact" class="cta-button">Get Started</a>
         <div class="scroll-down">
           <i class="fas fa-chevron-down"></i>
@@ -32,7 +39,9 @@
     <!-- Navigation -->
     <nav>
       <div class="nav-container">
-        <div class="nav-logo">Vigor VA Solutions</div>
+        <div class="nav-logo">
+          <img src="images/logo.png" alt="Vigor VA Solutions Logo" />
+        </div>
         <div class="hamburger" id="hamburger">
           <div></div>
           <div></div>
@@ -166,49 +175,58 @@
     </section>
 
     <!-- Contact -->
-<section id="contact" class="fade-in-up">
-  <h2>Contact Us</h2>
-  <p class="center-text">
-    Email us at
-    <a href="mailto:support@vigorvasolutions.com">support@vigorvasolutions.com</a>
-    or fill out the form below:
-  </p>
+    <section id="contact" class="fade-in-up">
+      <h2>Contact Us</h2>
+      <p class="center-text">
+        Email us at
+        <a href="mailto:support@vigorvasolutions.com"
+          >support@vigorvasolutions.com</a
+        >
+        or fill out the form below:
+      </p>
 
-  <!-- Thank You message (hidden by default) -->
-  <p id="thank-you-message" style="display:none; text-align:center; color:green; margin-top:10px;">
-    Thank you! Your message has been sent.
-  </p>
+      <!-- Thank You message (hidden by default) -->
+      <p
+        id="thank-you-message"
+        style="
+          display: none;
+          text-align: center;
+          color: green;
+          margin-top: 10px;
+        "
+      >
+        Thank you! Your message has been sent.
+      </p>
 
-  <form
-    class="contact-form stagger-container"
-    action="https://formspree.io/f/xyzbnqzg"
-    method="POST"
-  >
-    <input
-      class="stagger-item"
-      type="text"
-      name="name"
-      placeholder="Your Name"
-      required
-    />
-    <input
-      class="stagger-item"
-      type="email"
-      name="email"
-      placeholder="Your Email"
-      required
-    />
-    <textarea
-      class="stagger-item"
-      name="message"
-      placeholder="Message"
-      rows="5"
-      required
-    ></textarea>
-    <button class="stagger-item" type="submit">Send Message</button>
-  </form>
-</section>
-
+      <form
+        class="contact-form stagger-container"
+        action="https://formspree.io/f/xyzbnqzg"
+        method="POST"
+      >
+        <input
+          class="stagger-item"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          class="stagger-item"
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+        />
+        <textarea
+          class="stagger-item"
+          name="message"
+          placeholder="Message"
+          rows="5"
+          required
+        ></textarea>
+        <button class="stagger-item" type="submit">Send Message</button>
+      </form>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -298,42 +316,38 @@
       }
       type();
     </script>
-    
-<!-- Script to handle form submission and show thank-you message -->
-<script>
-  const form = document.querySelector('.contact-form');
-  const thankYou = document.getElementById('thank-you-message');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent normal form submission
-    const data = new FormData(form);
+    <!-- Script to handle form submission and show thank-you message -->
+    <script>
+      const form = document.querySelector('.contact-form');
+      const thankYou = document.getElementById('thank-you-message');
 
-    fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        form.reset(); // clear form fields
-        thankYou.style.display = 'block'; // show thank-you message
-      } else {
-        response.json().then(data => {
-          alert(data.error || "Oops! There was a problem submitting your form.");
-        });
-      }
-    })
-    .catch(error => {
-      alert("Oops! There was a problem submitting your form.");
-    });
-  });
-</script>
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // prevent normal form submission
+        const data = new FormData(form);
 
+        fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { Accept: 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              form.reset(); // clear form fields
+              thankYou.style.display = 'block'; // show thank-you message
+            } else {
+              response.json().then((data) => {
+                alert(
+                  data.error ||
+                    'Oops! There was a problem submitting your form.'
+                );
+              });
+            }
+          })
+          .catch((error) => {
+            alert('Oops! There was a problem submitting your form.');
+          });
+      });
+    </script>
   </body>
 </html>
-
-
-
-
-
-
