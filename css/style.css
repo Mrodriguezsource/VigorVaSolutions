@@ -50,7 +50,7 @@ body {
 
 /* Hero */
 .hero {
-  background: linear-gradient(125deg, #333, #b1afaf);
+  background: linear-gradient(90deg, #201f1f, #a5a4a4);
   height: 90vh;
   display: flex;
   justify-content: center;
@@ -440,3 +440,63 @@ footer {
   }
 }
 /*Hero Video Mobile*/
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== BACKGROUND VIDEO ===== */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* fills full screen */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* ===== CONTENT OVERLAY ===== */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ===== DARK OVERLAY (optional) ===== */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+  .hero-video {
+    object-fit: contain; /* 👈 ensures full video is visible */
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
